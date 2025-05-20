@@ -7,14 +7,10 @@
     <list default="true" id="121bf53e-fe8b-402e-8cc1-6fba997c236d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/herobook/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herobook/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/herobook/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herobook/controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/herobook/model/Chapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herobook/model/Chapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/herobook/model/Choice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herobook/model/Choice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/herobook/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herobook/model/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/herobook/view/SwingUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herobook/view/SwingUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/herobook/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/herobook/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/herobook/controller/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/herobook/controller/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/herobook/model/Scenario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/herobook/model/Scenario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/herobook/model/Chapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/herobook/model/Chapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/herobook/view/SwingUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/herobook/view/SwingUI.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,25 +94,6 @@
       <workItem from="1747638744535" duration="465000" />
       <workItem from="1747639530714" duration="3000" />
       <workItem from="1747639922968" duration="12000" />
-      <workItem from="1747723631694" duration="59000" />
-      <workItem from="1747723898152" duration="72000" />
-      <workItem from="1747724182295" duration="634000" />
-      <workItem from="1747725155798" duration="114000" />
-      <workItem from="1747725940790" duration="24000" />
-      <workItem from="1747725998590" duration="45000" />
-      <workItem from="1747726089667" duration="22000" />
-      <workItem from="1747726204636" duration="13000" />
-      <workItem from="1747726341902" duration="4498000" />
-      <workItem from="1747735252365" duration="19000" />
-      <workItem from="1747735895718" duration="27000" />
-      <workItem from="1747736354625" duration="211000" />
-      <workItem from="1747736575444" duration="278000" />
-      <workItem from="1747774832096" duration="38000" />
-      <workItem from="1747775072353" duration="11000" />
-      <workItem from="1747775124935" duration="58000" />
-      <workItem from="1747775381352" duration="27000" />
-      <workItem from="1747775460312" duration="155000" />
-      <workItem from="1747775788437" duration="176000" />
     </task>
     <servers />
   </component>

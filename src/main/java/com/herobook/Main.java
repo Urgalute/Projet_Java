@@ -3,37 +3,52 @@ package com.herobook;
 import com.herobook.controller.GameController;
 import com.herobook.model.*;
 import com.herobook.view.SwingUI;
+import com.MainMenu;
 
 import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
-        // Create a sample scenario
-        Scenario scenario = createSampleScenario();
-
-        // Create and setup the game controller
-        GameController gameController = new GameController();
-        gameController.loadScenario(scenario);
-
-        // Launch the UI
+        // Lancer le menu principal
         SwingUtilities.invokeLater(() -> {
-            SwingUI ui = new SwingUI(gameController);
-            ui.setVisible(true);
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.setVisible(true);
         });
     }
 
-    private static Scenario createSampleScenario() {
-        Scenario scenario = new Scenario("L'Aventure du Héros", "Une aventure épique vous attend!");
+    public static Scenario createSampleScenario() {
+        Scenario scenario = new Scenario("Un livre dont VOUS êtes le héros", "Une aventure épique vous attend!");
+
+
+        Chapter chapter175 = new Chapter("175", "Introduction",
+                "\n" +
+                        "Bienvenue dans ce livre dont vous êtes le héros\n" +
+                         "Dans ce concept de jeu, vous devez suivre un scénario écrit, et faire vos choix en fonction de l'évolution de celui-ci.\n" +
+                        "Pour résoudre les combats, vous aurez à votre disposition en haut un bouton de lancer de dé, qui lancera deux dés de 6.\n" +
+                        "\n" +
+                        "Pour ne pas vous perdre et noter des informations qui vous semblent importantes ( comme vos lancers de dés ou vos PV ), vous avez accès à votre droite à un espace de prise de notes.\n" +
+                        "\n" +
+                        "Ce jeu vous laisse en totale liberté de recommencer et de 'tricher' dans le cas où vous mourrez trop souvent." +
+                        "En effet, vous êtes libre de cliquer sur le bouton pour continuer où il faut, même si vous venez de mourir sur le combat." +
+                        "Le tout dans un but de vous éviter la frustration d'être bloqué dans un même et unique combat et de pouvoir explorer tout le jeu.\n" +
+                        "\n" +
+                        "Maintenant que vous en savez un peu plus, laissez libre cours à vos choix, ne réfléchissez pas trop, et FONCEZ !\n" +
+                        "\n");
+        chapter175.addChoice(new Choice("Page 0", "0"));
+
 
         Chapter chapter0 = new Chapter("0", "Le Début de l'Aventure",
                 "0\n" +
-                        "— Si vous avez accompli une première mission dans le , Château des Ténèbres,\n" +
+                        "\n" +
+                        "— Si vous avez accompli une première mission dans le livre : Château des Ténèbres,\n" +
                         "rendez-vous au 1. Sinon, rendez-vous au 2.");
         chapter0.addChoice(new Choice("Page 1", "1"));
         chapter0.addChoice(new Choice("Page 2", "2"));
+        chapter0.addChoice(new Choice("Test Village", "10"));
 
         Chapter chapter1 = new Chapter("1", "",
                 "1\n" +
+                        "\n" +
                         "— E. J. ! vous exclamez-vous ! Vous avez gardé E J. !\n" +
                         "— Bonjour, Pip, vous dit Excalibur Junior, l'épée parlante.\n" +
                         "Vous la regardez avec émotion, vous souvenant de l'aide qu'elle vous a apportée tout\n" +
@@ -57,6 +72,7 @@ public class Main {
 
         Chapter chapter2 = new Chapter("2", "",
                 "2\n" +
+                        "\n" +
                         "Voici, explique Merlin, Excalibur Junior. C'est une épée très spéciale. Je l'ai forgée\n" +
                         "moi-même, et je suis donc bien placé pour le savoir. Elle est la réplique exacte de\n" +
                         "l'épée du roi Arthur. La réplique exacte. en plus petit. Et elle parle, contrairement à\n" +
@@ -77,6 +93,7 @@ public class Main {
 
         Chapter chapter3 = new Chapter("3", "",
                 "3\n" +
+                        "\n" +
                         "en accomplissant votre quete dans Le Château des Ténèbres ,vous avez peut etre\n" +
                         "découvert quelques objets intéressants que vous avez remporté avec vous.ils peuvent\n" +
                         "faire partie de votre équipement dans cette nouvelle aventure, mais seulement si vous\n" +
@@ -86,15 +103,15 @@ public class Main {
                         "1 : La Pierre de Chance .cette pierre vous permet de rajouter ou de retrancher 3\n" +
                         "points à tous les résultats que vous obtiendrez en lançant les dés..\n" +
                         "2 : La Pièce de Cuivre a double face une pièce très utile dans les jeux de hazard\n" +
-                        ",puisqu’elle permet de tricher comme un fou ,et de gagner à tous les coups !quant à\n" +
+                        ",puisqu'elle permet de tricher comme un fou ,et de gagner à tous les coups !quant à\n" +
                         "savoir à combien de jeux de hazards vous allez jouer dans cette histoire ,c est une\n" +
                         "autre affaire ,mais on ne sait jamais.\n" +
-                        "3 : L'Anneau Sonore du Zombie jusqu’ici personne n’a encore tres bien compris\n" +
-                        "comment fonctionnait l’anneau sonore . Mais son action semble réellement magique\n" +
+                        "3 : L'Anneau Sonore du Zombie jusqu'ici personne n'a encore tres bien compris\n" +
+                        "comment fonctionnait l'anneau sonore . Mais son action semble réellement magique\n" +
                         "aussi mieux vaut l emporter.\n" +
                         "4 : la Baguette à Bulles du laboratoire d'Ansalom .elle projete une bulle verte\n" +
                         "lumineuse qui handicape un adversaire à un point tel qu il est possible de le frapper\n" +
-                        "quatre fois avant qu’il ne puisse répliquer lancez un dé : le chiffre obtenu sera le\n" +
+                        "quatre fois avant qu'il ne puisse répliquer lancez un dé : le chiffre obtenu sera le\n" +
                         "nombre de bulles dont vous disposerez lors de cette aventure.\n" +
                         "5 : Le Canard magique donné par Nosférax .ce petit canard mettra en échec toute\n" +
                         "opération magique tentée contre vous(ou autour de vous) par exemple une boule de feu\n" +
@@ -132,6 +149,7 @@ public class Main {
 
         Chapter chapter4 = new Chapter("4", "",
                 "4\n" +
+                        "\n" +
                         "Merlin tire de la manche de son ample robe un dernier rouleau de parchemin,\n" +
                         "jauni par l'âge (à moins que ce ne soit par le thé), et maculé des taches habituelles.\n" +
                         "Pour finir, dit-il, voici ta carte. C'est une copie d'une carte très rare et très ancienne que\n" +
@@ -166,12 +184,13 @@ public class Main {
                         "Wanda, grandeur nature. Enfin, presque ! Enfin, c'est la seule piste que vous possédiez\n" +
                         "pour découvrir l'Antre du Dragon. Vous avez donc tout intérêt à vous en servir.\n" +
                         "Choisissez un itinéraire, et suivez-le jusqu'à ce que vous arriviez à une section\n" +
-                        "numérotée. Et rendez-vous à la séquence portant ce numéro. N’oubliez pas d'emporter\n" +
+                        "numérotée. Et rendez-vous à la séquence portant ce numéro. N'oubliez pas d'emporter\n" +
                         "votre équipement et vos armes (ainsi que vos sortilèges !) Sur la carte, vous avez\n" +
                         "remarqué que l'entrée de l'Antre du Dragon n' est pas indiquée. Peut-être parce qu'elle\n" +
                         "est secrète. Mais elle doit être là, quelque part, dans l'une de ces sections, par exemple.\n" +
                         "Il va falloir vous mettre en route pour la découvrir, Pip ! Car, où qu'elle soit...\n" +
                         "L'aventure commence !\n");
+
 
         chapter4.addChoice(new Choice("Page 21", "21"));
         chapter4.addChoice(new Choice("Page 65", "65"));
@@ -180,6 +199,7 @@ public class Main {
 
         Chapter chapter5 = new Chapter("5", "Le Début de l'Aventure",
                 "5\n" +
+                        "\n" +
                         "Les bois semblent se refermer sur vous quand vous y pénétrez. Au bout de\n" +
                         "quelques instants le sentier disparaît, et vous en êtes réduit à vous frayer un chemin\n" +
                         "de votre mieux parmi les taillis, les buissons et les ronces. La progression est de\n" +
@@ -196,6 +216,7 @@ public class Main {
 
         Chapter chapter6 = new Chapter("6", "",
             "6\n" +
+                    "\n" +
                     "Il vous a mordu à la rotule ! Cette sale petite bête a bondi, et elle vous a planté ses\n" +
                     "crocs répugnants dans le genou jusqu'à l'os, vous infligeant une cruelle douleur. Si\n" +
                     "vous voulez combattre cet animal déduisez 2 points à chaque fois que vous lanceriez\n" +
@@ -218,6 +239,7 @@ public class Main {
 
         Chapter chapter7 = new Chapter("7", "",
                 "7\n" +
+                        "\n" +
                         "Vous décidez d'utiliser votre hache pour abattre un arbre qui pourrait faire un pont\n" +
                         "convenable en travers du gouffre, rendez-vous au 35. si vous décidez de vous servir\n" +
                         "d'une corde ou de crampons pour descendre cette falaise verticale, rendez-vous au 27.\n");
@@ -227,6 +249,7 @@ public class Main {
 
         Chapter chapter8 = new Chapter("8", "",
                 "8\n" +
+                        "\n" +
                         "Toujours perdu dans le brouillard, Pip. Continuez à errer jusqu'à ce que vous arriviez\n" +
                         "au 42.\n");
 
@@ -234,6 +257,7 @@ public class Main {
 
         Chapter chapter9 = new Chapter("9", "",
                 "9\n" +
+                        "\n" +
                         "Vous avez l'impression d'avoir parcouru des kilomètres, avec le village toujours en\n" +
                         "vue, mais cependant toujours aussi éloigné. Vous êtes maintenant épuisé, affamé, et\n" +
                         "vous décidez donc de vous reposer et de manger une partie de vos provisions. Vous\n" +
@@ -257,12 +281,13 @@ public class Main {
 
         Chapter chapter10 = new Chapter("10", "",
                 "10\n" +
+                        "\n" +
                         "Un clignement de paupières. Un frémissement. Vous êtes dans le village, Pip. Cela ne\n" +
                         "fait aucun doute. En plein village, sans avoir fait un pas de plus. Comme c'est étrange.\n" +
                         "C'est un joli village. Petit mais ravissant. Des maisons au toit de chaume... une pelouse\n" +
                         "une pittoresque petite église en pierre. Et pas une âme en vue. Pas âme qui vive. vous\n" +
                         "vous trouvez sur un sentier de terre battue, un peu boueux et creusé d'ornières, comme\n" +
-                        "s'il servait souvent. Une longue bâtisse se dresse au nord-est de l’endroit où vous êtes\n" +
+                        "s'il servait souvent. Une longue bâtisse se dresse au nord-est de l'endroit où vous êtes\n" +
                         "et, vers l'est, s'étend le plus étrange jardin que vous ayez jamais vu. Toutes les plantes\n" +
                         "semblent faites de pierre et il est parsemé de statues de monstres. Au-delà du jardin se\n" +
                         "trouvent les chaumières et, derrière les chaumières, vous apercevez le clocher de\n" +
@@ -277,6 +302,7 @@ public class Main {
                         "sur la carte.\n" +
                         "Ah. une dernière chose... Avez-vous remarqué qu'il n'y a pas d'issue ?\n");
 
+        
         chapter10.addChoice(new Choice("Page 20", "20"));
         chapter10.addChoice(new Choice("Page 28", "28"));
         chapter10.addChoice(new Choice("Page 55", "55"));
@@ -307,6 +333,7 @@ public class Main {
 
         Chapter chapter11 = new Chapter("11", "",
                 "11\n" +
+                        "\n" +
                         "Vous êtes arrivé à une clairière. Eh bien, c'est toujours plus agréable que de vous\n" +
                         "frayer un chemin dans les taillis, bien qu'il n'y ait pas grand-chose à voir, ici. La\n" +
                         "clairière elle-même est presque ronde, et elle fait environ six à huit mètres de\n" +
@@ -332,6 +359,7 @@ public class Main {
 
         Chapter chapter12 = new Chapter("12", "",
                 "12\n" +
+                        "\n" +
                         "Bravo, Pip, la magie devrait opérer, à condition que vous vous y preniez\n" +
                         "correctement. Rendez-vous au 23.\n");
 
@@ -339,6 +367,7 @@ public class Main {
 
         Chapter chapter13 = new Chapter("13", "",
                 "13\n" +
+                        "\n" +
                         "Qu'est-ce que c'est ? On dirait une brume de chaleur, mais il ne fait pas chaud à ce\n" +
                         "point. Et une brume de chaleur ne se manifeste pas comme cela. Une sorte de\n" +
                         "vibration anime l'air devant vous. Mais une vibration bien délimitée de deux mètres de\n" +
@@ -352,7 +381,8 @@ public class Main {
 
         Chapter chapter14 = new Chapter("14", "",
                 "14\n" +
-                        "Vous ouvrez lentement les yeux. Quelque part dam le lointain, un orchestre invisible\n" +
+                        "\n" +
+                        "Vous ouvrez lentement les yeux. Quelque part dans le lointain, un orchestre invisible\n" +
                         "joue une Marche Funèbre. Vous êtes au milieu de la Grotte de Cristal Merlin est\n" +
                         "penché sur vous, l'air extrêmement mécontent.\n" +
                         ".— Alors, tu as réussi à te faire tuer, n'est-ce pas ? Quelle négligence ! Eh bien, tu n'as\n" +
@@ -369,6 +399,7 @@ public class Main {
 
         Chapter chapter15 = new Chapter("15", "",
                 "15\n" +
+                        "\n" +
                         "La décision que vous venez de prendre ne vaut rien dans ces circonstances. Retournez\n" +
                         "d'où vous venez, et faites un nouveau choix. Mais vous perdez votre mordant, si bien\n" +
                         "que c'est votre adversaire qui frappe le premier.\n");
@@ -377,6 +408,7 @@ public class Main {
 
         Chapter chapter16 = new Chapter("16", "",
                 "16\n" +
+                        "\n" +
                         "vous poursuivez péniblement votre chemin, laissant bientôt la sombre forêt loin\n" +
                         "derrière vous. Le paysage est plus riant maintenant mais, au bout d'un moment, la\n" +
                         "route descend et plonge dans une vallée. Vous continuez à avancer et vous vous trou-\n" +
@@ -395,6 +427,7 @@ public class Main {
 
         Chapter chapter17 = new Chapter("17", "",
                 "17\n" +
+                        "\n" +
                         "Désolé, mais vous semblez toujours complètement perdu. Lancez les dés de nouveau.\n" +
                         "Si vous faites :\n" +
                         "de 2 à 6 : rendez-vous au 73.\n" +
@@ -405,6 +438,7 @@ public class Main {
 
         Chapter chapter18 = new Chapter("18", "",
                 "18\n" +
+                        "\n" +
                         "eh bien, voilà ! Vous rassemblez votre matériel et vous reculez le long du sentier pour\n" +
                         "prendre le plus d' élan possible. Vous faites une profonde aspiration, vous touchez du\n" +
                         "bois, (ce n'est pas ça qui manque dans la forêt) et vous foncez à toute allure vers le\n" +
@@ -419,6 +453,7 @@ public class Main {
 
         Chapter chapter19 = new Chapter("19", "",
                 "19\n" +
+                        "\n" +
                         "Quelqu'un avance dans votre direction le long de la route. Une créature gigantesque.\n" +
                         "Elle a une curieuse démarche en outre, se balançant d'un côté sur l'autre comme si elle\n" +
                         "éprouvait quelque difficulté à garder son équilibre. Elle doit peser une tonne : le sol\n" +
@@ -442,6 +477,7 @@ public class Main {
 
         Chapter chapter20 = new Chapter("20", "",
                 "20\n" +
+                        "\n" +
                         "Pouah, quelle puanteur ! A en juger par l'odeur vous devez vous trouver dans des\n" +
                         "écuries. Mais elles ne semblent pas avoir servi récemment. Les stalles sont\n" +
                         "démantelées, la paille est pourrie, et de vieux harnais de cuir accrochés à des clous\n" +
@@ -455,11 +491,12 @@ public class Main {
 
         Chapter chapter21 = new Chapter("21", "",
                 "21\n" +
+                        "\n" +
                         "Vous suivez le chemin, bordé de part et d'autre par la forêt, en direction du nord-est.\n" +
                         "Les arbres sont toujours aussi serrés, aussi sombres et menaçants mais, du moins, le\n" +
                         "sentier devant vous semble dégagé et libre de tout obstacle. Jusqu'au moment en fait,\n" +
                         "où vous arrivez au bord d'un gouffre Mmmm... Vous vous en approchez. A vos pieds\n" +
-                        "s'ouvre un à-pic de près de soixante mètres. Tout au fond coule une rivière turbulante,\n" +
+                        "s'ouvre un à-pic de près de soixante mètres. Tout au fond coule une rivière turbulente,\n" +
                         "rapide. Levant les yeux, vous constatez que le sentier reprend de l'autre côté-de\n" +
                         "l'abîme, dont vous estimez la largeur à environ cinq ou six mètres. Si vous prenez\n" +
                         "suffisamment d'élan, peut-être pourriez-vous le franchir d'un bond. Mais, par ailleurs,\n" +
@@ -475,10 +512,11 @@ public class Main {
 
         Chapter chapter22 = new Chapter("22", "",
                 "22\n" +
+                        "\n" +
                         "—Vous pensez bien que je comprends ça parfaitement. dit le petit homme, nullement\n" +
                         "offensé. Restez tranquillement où vous êtes, et mangez tout à votre aise. Je me\n" +
                         "contenterai de vous tenir compagnie un moment.\n" +
-                        "tandis que vous terminez votre repas, l'idée vous vint que le petit homme pourrait\n" +
+                        "tandis que vous terminez votre repas, l'idée vous vient que le petit homme pourrait\n" +
                         "peut-être vous eclairer sur le mystère qui entoure le village. Aussi, lui demandez-vous\n" +
                         "comment vous y rendre.\n" +
                         "—Ce patelin, là-bas? demande-t-il. Je le connais comme ma poche. J'y suis allé\n" +
@@ -497,6 +535,7 @@ public class Main {
 
         Chapter chapter23 = new Chapter("23", "",
                 "23\n" +
+                        "\n" +
                         "l'Homme de Pierre possède 28 POINTS DE VIE. Il n'est pas très agile, et il lui faut donc\n" +
                         "obtenir au minimum 8, avec les dés, pour vous frapper de son épée. En revanche,\n" +
                         "cette épée vous infligera 4 Points de Dommage si elle vous touche. Bonne chance !\n" +
@@ -508,6 +547,7 @@ public class Main {
 
         Chapter chapter24 = new Chapter("24", "",
                 "24\n" +
+                        "\n" +
                         "Cette église ne ressemble à aucune de celles qu'il vous ait été donné de voir. Du\n" +
                         "moins, dans l'état où - elle se trouve. Il y a une nef, des bancs, un autel, un orgue, une\n" +
                         "chaire, un lutrin et tout le reste, y compris des vitraux. Mais tout cela est couvert de\n" +
@@ -535,6 +575,7 @@ public class Main {
 
         Chapter chapter25 = new Chapter("25", "",
                 "25\n" +
+                        "\n" +
                         "vous émergez dans un désert volcanique. Vous vous trouvez au milieu de champs de\n" +
                         "lave, de vastes étendues où se dressent en formes grotesques des pierres au profil\n" +
                         "tourmenté, une surface ondulée, creusée de trous, sur laquelle il est difficile d'avancer.\n" +
@@ -559,6 +600,7 @@ public class Main {
 
         Chapter chapter26 = new Chapter("26", "",
                 "26\n" +
+                        "\n" +
                         "Vous venez d'être empoisonné. Ce petit monstre féroce avait des crocs venimeux.\n" +
                         "Quel désastre Lancez vite deux dés.\n" +
                         "Si vous faites :\n" +
@@ -579,6 +621,7 @@ public class Main {
 
         Chapter chapter27 = new Chapter("27", "",
                 "27\n" +
+                        "\n" +
                         "Allez-vous réussir cette descente vertigineuse? La falaise est extrêmement abrupte.\n" +
                         "Et même avec des cordes et des crampons, il faut être un pet inconscient pour s'y\n" +
                         "aventurer. Si vous hésitez, VOUS pouvez retourner immédiatement au 7 pour réfléchir\n" +
@@ -593,6 +636,7 @@ public class Main {
 
         Chapter chapter28 = new Chapter("28", "",
                 "28\n" +
+                        "\n" +
                         "Des poireaux et des laitues en pierre, des choux en pierre, des petits pois en pierre, des\n" +
                         "carottes en pierre, des épinards en pierre, et même des pommes de terre en pierre. Et\n" +
                         "un peu plus loin, vous voyez nettement des fleurs en pierre : des roses, des jacinthes,\n" +
@@ -630,6 +674,7 @@ public class Main {
 
         Chapter chapter29 = new Chapter("29", "",
                 "29\n" +
+                        "\n" +
                         "C'est absolument impensable, Pip, et pourtant, c'est bien ce qui est arrivé. Vous avez\n" +
                         "suivi ses directives à la lettre... et maintenant vous vous retrouvez à votre point de\n" +
                         "départ, avec Wanda la Vagabonde qui vous regarde avec stupeur. Pas d'autre solution\n" +
@@ -641,6 +686,7 @@ public class Main {
 
         Chapter chapter30 = new Chapter("30", "",
                 "30\n" +
+                        "\n" +
                         "On dirait les vestiges d'une tour de guet en pierre. Très, très ancienne. En ruine\n" +
                         "maintenant, bien entendu. La presque totalité de la tour s'est écroulée et le sol est\n" +
                         "jonché de pierres et de gravats. Vous pourriez perdre votre temps ici indéfiniment,\n" +
@@ -655,6 +701,7 @@ public class Main {
 
         Chapter chapter31 = new Chapter("31", "",
                 "31\n" +
+                        "\n" +
                         "rien à faire, encore perdu. Lancez les dés de nouveau\n" +
                         "SI VOUS faites :\n" +
                         "de 2 à 6 : rendez-vous au 17.\n" +
@@ -665,6 +712,7 @@ public class Main {
 
         Chapter chapter32 = new Chapter("32", "",
                 "32\n" +
+                        "\n" +
                         "Pas un mauvais choix, Pip. Les armes magiques sont efficaces ici, bien que vous\n" +
                         "ayez à soustraire 4 points de tous les Points de Dommage qu'elles infligent. rendez-\n" +
                         "vous au 23.\n");
@@ -673,6 +721,7 @@ public class Main {
 
         Chapter chapter33 = new Chapter("33", "",
                 "33\n" +
+                        "\n" +
                         "le village disparaît et la route s'étend à l'infini devant vous. Vous faites demi-tour,\n" +
                         "mais le porche a disparu lui aussi. Il n'est plus question de revenir sur vos pas\n" +
                         "maintenant. La seule solution, c'est de continuer votre chemin. Vous marchez jusqu'à\n" +
@@ -684,6 +733,7 @@ public class Main {
 
         Chapter chapter34 = new Chapter("34", "",
                 "34\n" +
+                        "\n" +
                         "Comment un être sensé pourrait-il avoir envie d\"explorer cet endroit? C'est un\n" +
                         "cimetière. Vous le saviez que c'était un cimetière : vous pouviez parfaitement le voir\n" +
                         "avant de décider d'entrer ! Que pouviez-vous bien espérer trouver dans un cimetierre ?\n" +
@@ -696,6 +746,7 @@ public class Main {
 
         Chapter chapter35 = new Chapter("35", "",
                 "35\n" +
+                        "\n" +
                         "Lancez deux dés. Si vous faites :\n" +
                         "de 2 à 6 : vous ne voyez aucun arbre qui pourrai: faire l'affaire à proximité. Rendez-\n" +
                         "vous au 21, et faites un nouveau choix, de 7 à 12 : rendez-vous au 85.\n");
@@ -705,6 +756,7 @@ public class Main {
 
         Chapter chapter36 = new Chapter("36", "",
                 "36\n" +
+                        "\n" +
                         "— Très aimable à vous, Votre Honneur, dit le petit homme. Ce sera bien volontiers,\n" +
                         "puisque vous me le proposez. Et il se hisse sur la souche pour s'installer\n" +
                         "confortablement. Pendant qu'il mange (et il a un fameux coup de fourchette pour\n" +
@@ -722,6 +774,7 @@ public class Main {
 
         Chapter chapter37 = new Chapter("37", "",
                 "37\n" +
+                        "\n" +
                         "Ouille, ouille, ouille ! Quel combat ! Pendant un moment, vous avez bien cru que vous\n" +
                         "n'alliez pas vous en tirer. Cela montre ce qu'on peut accomplir grâce au courage, à\n" +
                         "l'habileté et à la détermination. vous vous attardez un moment pour reprendre des\n" +
@@ -731,6 +784,7 @@ public class Main {
 
         Chapter chapter38 = new Chapter("38", "",
                 "38\n" +
+                        "\n" +
                         "on dirait une chaumière, ressemblant à n'importe quelle chaumière. Murs blanchis à\n" +
                         "la chaux, toit de chaume. Elle est construite contre la palissade, bien sûr. de même\n" +
                         "que plusieurs autres comme vous l'avez remarqué, sans aucun doute. Vous entrez\n" +
@@ -751,6 +805,7 @@ public class Main {
 
         Chapter chapter39 = new Chapter("39", "",
                 "39\n" +
+                        "\n" +
                         "Comme vous vous approchez de cette chaumière, vous remarquez, près de la porte\n" +
                         "d'entrée, l'un de ces atroces gnomes en plastique dont on décore les jardins et qui vont\n" +
                         "devenir si populaires dans quelques siècles. Hé, un instant ! Un nain en plastique du\n" +
@@ -803,6 +858,7 @@ public class Main {
 
         Chapter chapter40 = new Chapter("40", "",
                 "40\n" +
+                        "\n" +
                         "Voilà qui est mieux ! Une table chargée de beignets, de meringues, de tartes aux\n" +
                         "pommes, de cakes, de brioches, de bombes glacées, de gâteaux aux noix et de\n" +
                         "friandises de toutes sortes. Il y a même un pichet de citronnade fraîche. Et personne en\n" +
@@ -813,6 +869,7 @@ public class Main {
 
         Chapter chapter41 = new Chapter("41", "",
                 "41\n" +
+                        "\n" +
                         "Dites-moi, Pip : qu'est-ce qui est vert vif avec des dents rouges, se tient debout sur\n" +
                         "deux jambes, et brandit une dague dans chaque main ? Non, je ne sais pas non plus.\n" +
                         "Mais il existe une créature ainsi forte dans cette chaumière. Elle possède en outre 5\n" +
@@ -835,6 +892,7 @@ public class Main {
 
         Chapter chapter42 = new Chapter("42", "",
                 "42\n" +
+                        "\n" +
                         "Vous n'allez jamais le croire, Pip. Le soleil brille partout et Wanda la Vagabonde\n" +
                         "vous pousse dans le dos avec son mufle, l'air stupide. Vous avez bouclé la boucle et\n" +
                         "vous vous retrouvez à votre point de départ. Mieux vaut examiner à nouveau la carte\n" +
@@ -845,6 +903,7 @@ public class Main {
 
         Chapter chapter43 = new Chapter("43", "",
                 "43\n" +
+                        "\n" +
                         "Ah, il semble que nous progressions ! Il existe une porte de derrière à cette chaumière.\n" +
                         "Si vous décidez de franchir la porte du fond, rendez- vous au 92.\n" +
                         "Si vous préférez vous en abstenir, retournez à votre carte et reprenez votre exploration.\n");
@@ -854,7 +913,8 @@ public class Main {
 
         Chapter chapter44 = new Chapter("44", "",
                 "44\n" +
-                        "L’une au moins vous a blessé. Si vous faites de 7 à 12, vous les avez évitées par\n" +
+                        "\n" +
+                        "L'une au moins vous a blessé. Si vous faites de 7 à 12, vous les avez évitées par\n" +
                         "miracle. S vous êtes embroché, lancez vos dés de nouveau pour savoir quels\n" +
                         "dommages ont subi vos POINTS DE Si vous n'avez plus de points, vous êtes mort, et\n" +
                         "rendez-vous au 14. Si vous êtes toujours en vie, les mauvaises nouvelles ne font que\n" +
@@ -872,6 +932,7 @@ public class Main {
 
         Chapter chapter45 = new Chapter("45", "",
                 "45\n" +
+                        "\n" +
                         "Comme c'est étrange : cette demeure ressemble à une chaumière, elle a la forme d'une\n" +
                         "chaumière et la taille d'une chaumière, mais maintenant que vous en etes proche, vous\n" +
                         "constatez que ce n'est pas une chaumière, mais un énorme rocher coiffé d'un toit de\n" +
@@ -883,6 +944,7 @@ public class Main {
 
         Chapter chapter46 = new Chapter("46", "",
                 "46\n" +
+                        "\n" +
                         "— Bonjour, petite personne, déclare quelque part au -dessus de vous une voix\n" +
                         "profonde, mais curieusement bruyante.\n" +
                         "Vous levez la tête vers les branches de l'arbre, mas vous ne voyez personne.\n" +
@@ -906,6 +968,7 @@ public class Main {
 
         Chapter chapter47 = new Chapter("47", "",
                 "47\n" +
+                        "\n" +
                         "Le Comte Dracula disait volontiers que lorsqu'on avait vu une crypte, on les avait\n" +
                         "toutes vues. Mais quoi qu'il en soit, cette crypte-là semble vraiment tout à fait\n" +
                         "spéciale. Pour commencer, elle est toute entière en marbre rose. Et, en plus, sur une\n" +
@@ -932,6 +995,7 @@ public class Main {
 
         Chapter chapter48 = new Chapter("48", "",
                 "48\n" +
+                        "\n" +
                         "Vous entrez dans la chaumière et tout l'édifice s'écroule sur vous. Ce n'est parfois pas\n" +
                         "drôle d'être un aventurier, Pip ! Rendez-vous au 14.\n");
 
@@ -939,6 +1003,7 @@ public class Main {
 
         Chapter chapter49 = new Chapter("49", "",
                 "49\n" +
+                        "\n" +
                         "Vous vous collez comme vous le pouvez à la paroi et vous amorcez une périlleuse\n" +
                         "descente, centimètre par centimètre, cherchant des prises quasiment inexistantes sous\n" +
                         "vos pieds. Du fond de l'abîme souffle un vent violent dont la puissance augmente\n" +
@@ -954,6 +1019,7 @@ public class Main {
 
         Chapter chapter50 = new Chapter("50", "",
                 "50\n" +
+                        "\n" +
                         "Grrrrrr !\n" +
                         "Quel bruit affreux à entendre quand vous ouvrez la porte d'une chaumière, Pip. Il fait\n" +
                         "sombre à l'intérieur, et pendant un moment, vous ne distinguez que deux yeux rouges\n" +
@@ -971,6 +1037,7 @@ public class Main {
 
         Chapter chapter51 = new Chapter("51", "",
                 "51\n" +
+                        "\n" +
                         "si vous n'étiez pas un aventurier aussi chevronné, vous auriez pensé qu'il s'agissait\n" +
                         "simplement d'une vieille maison abandonnée. Personne, aucun objet de valeur,\n" +
                         "quelques débris de vieux meubles... Le genre d'endroit qui vous incite à tourner\n" +
@@ -987,6 +1054,7 @@ public class Main {
 
         Chapter chapter52 = new Chapter("52", "",
                 "52\n" +
+                        "\n" +
                         "Quelqu'un aime vraiment les plantes vertes. quand vous entrez dans cette chaumière, il\n" +
                         "vous vient aussitôt à l'esprit l'image d'une charmante vieille dame s'affairant dans le\n" +
                         "calme de son logis campagnard. La maison est absolument envahie par la verdure. Des\n" +
@@ -1006,6 +1074,7 @@ public class Main {
 
         Chapter chapter53 = new Chapter("53", "",
                 "53\n" +
+                        "\n" +
                         "Comme aventurier, vous vous posez là. Pas même capable de trouver votre chemin\n" +
                         "pour sortir de... oh. peu importe ! Lancez les dés de nouveau. Et tâchez de vous y\n" +
                         "prendre correctement cette fois !\n" +
@@ -1018,6 +1087,7 @@ public class Main {
 
         Chapter chapter54 = new Chapter("54", "",
                 "54\n" +
+                        "\n" +
                         "Quel vaste bâtiment. En y pénétrant, vous constatez que c'est un silo à grains. Mais\n" +
                         "comme tout le reste dans ce village misérable, les grains sentent vraiment le moisi.\n" +
                         "Si vous pensez ne rien y trouver d'intéressant, reprenez votre carte et explorez un autre\n" +
@@ -1029,6 +1099,7 @@ public class Main {
 
         Chapter chapter55 = new Chapter("55", "",
                 "55\n" +
+                        "\n" +
                         "— Halte, Manant ! Comment oses-tu troubler mes méditations ?\n" +
                         "Vous ne vous attendiez pas à entendre ce genre de propos en pénétrant dans une\n" +
                         "chaumière, à la campagne, mais vos oreilles ne vous ont pas trompé. Et ces mots\n" +
@@ -1048,6 +1119,7 @@ public class Main {
 
         Chapter chapter56 = new Chapter("56", "",
                 "56\n" +
+                        "\n" +
                         "C'est dangereux, sans aucun doute, de se rendre dans cet endroit fait remarquer le petit\n" +
                         "homme. Et, bien difficile d'y arriver, si on ne connaît pas le chemin ; mais, enfin, c'est\n" +
                         "toujours difficile d'aller quelque part sans connaître le chemin.\n" +
@@ -1076,6 +1148,7 @@ public class Main {
 
         Chapter chapter57 = new Chapter("57", "",
                 "57\n" +
+                        "\n" +
                         "De près, le site n'est pas aussi impressionnant qu'il le paraissait de loin. En fait, il n'est\n" +
                         "pas impressionnant du tout. Peut-être était-ce jadis une très belle abbaye, mais il n'en\n" +
                         "reste guère que des ruines. Des murs croulants, ou près de s'écrouler. Et pourtant, les\n" +
@@ -1108,6 +1181,7 @@ public class Main {
 
         Chapter chapter58 = new Chapter("58", "",
                 "58\n" +
+                        "\n" +
                         "Il semble que vous approchiez d'une ville. Ou plutôt d'un village. La première chose\n" +
                         "que vous remarquez, c'est le clocher de l'église puis, tandis que vous poursuivez\n" +
                         "péniblement votre chemin, apparaissent les toits de chaume des chaumières. Le seul\n" +
@@ -1125,6 +1199,7 @@ public class Main {
 
         Chapter chapter59 = new Chapter("59", "",
                 "59\n" +
+                        "\n" +
                         "Un vent violent se lève et vous avez de plus en plus de mal à rester cramponné contre\n" +
                         "la paroi de la falaise. Même avec votre matériel, il faudrait être un grimpeur\n" +
                         "expérimenté pour effectuer cette descente. Des rafales s'engouffrent dans vos\n" +
@@ -1148,6 +1223,7 @@ public class Main {
 
         Chapter chapter60 = new Chapter("60", "",
                 "60\n" +
+                        "\n" +
                         "N'avez-vous rien de mieux à faire que de fixer le fond d'un puits, Pip ?\n" +
                         "Particulièrement un puits où se trouve un Farfadet des Eaux. Parfaitement, un\n" +
                         "farfadet des Eaux !\n" +
@@ -1164,6 +1240,7 @@ public class Main {
 
         Chapter chapter61 = new Chapter("61", "",
                 "61\n" +
+                        "\n" +
                         "Vous savez quoi ? Pour la première fois dans ce village rébarbatif, vous avez trouvé un\n" +
                         "endroit qui degage une plaisante atmosphère. Vous vous attardez sur le seuil de la\n" +
                         "chaumière, vous laissant envahir par cette agréable sensation. Si vous étiez à court de\n" +
@@ -1178,6 +1255,7 @@ public class Main {
 
         Chapter chapter62 = new Chapter("62", "",
                 "62\n" +
+                        "\n" +
                         "Vous vous dirigez vers le nord sur une courte distance avant de découvrir que vous\n" +
                         "avez fait un mauvais choix. Le sol se fissure brusquement sous vos pieds, et vous\n" +
                         "plongez dans un ruisseau de lave souterrain. Ce n'est qu'un tout petit ruisseau, mais là\n" +
@@ -1188,6 +1266,7 @@ public class Main {
 
         Chapter chapter63 = new Chapter("63", "",
                 "63\n" +
+                        "\n" +
                         "En approchant de cette chaumière, vous savez aussitôt qu'elle doit être habitée\n" +
                         "puisqu'un filet de fumée sort de la cheminée. Cette supposition se confirme quand,\n" +
                         "après avoir frappé poliment, vous entendez une voix répondre : Entrez !\n" +
@@ -1244,6 +1323,7 @@ public class Main {
 
         Chapter chapter64 = new Chapter("64", "",
                 "64\n" +
+                        "\n" +
                         "I1 s'est levé ! Le brouillard s'est levé ! Qu'est-ce que vous en dites : votre fameux sens\n" +
                         "de l'orientation n' était pas si mauvais après tout ! Maintenant rendez-vous au 58\n");
 
@@ -1270,12 +1350,14 @@ public class Main {
 
         Chapter chapter66 = new Chapter("66", "",
                 "66\n" +
+                        "\n" +
                         "Rendez-vous directement au 41.\n");
 
         chapter66.addChoice(new Choice("Page 41", "41"));
 
         Chapter chapter67 = new Chapter("67", "",
                 "67\n" +
+                        "\n" +
                         "— Soyez le bienvenu, déclare le Monstre, qui a manifestement remarqué que vous\n" +
                         "vous transformiez petit à petit en pierre. Nous avons réservé un emplacement de choix\n" +
                         "où nous vous placerons dés que vous serez complètement pétrifié. Là-bas vers le sud,\n" +
@@ -1300,6 +1382,7 @@ public class Main {
 
         Chapter chapter68 = new Chapter("68", "",
                 "68\n" +
+                        "\n" +
                         "Glou ... glou ... glou ... glou... ce sont les sons que vous émettez en vous noyant, Pip...\n" +
                         "Ce corps stupide ne savait pas nager ! Rendez-vous au 14.\n");
 
@@ -1307,12 +1390,14 @@ public class Main {
 
         Chapter chapter69 = new Chapter("69", "",
                 "69\n" +
+                        "\n" +
                         "Rendez-vous directement au 41.\n");
 
         chapter69.addChoice(new Choice("Page 41", "41"));       
 
         Chapter chapter70 = new Chapter("70", "",
                 "70\n" +
+                        "\n" +
                         "La chance vous sourit, Pip. Vous trébuchez en reculant jusqu'à ce que vos pieds\n" +
                         "atteignent la limite du jardin de pierre. Aussitôt le Monstre se fige sur place, alors que\n" +
                         "vous-même, en revanche, cessez de vous transformer en pierre. Vous l'avez échappe\n" +
@@ -1322,6 +1407,7 @@ public class Main {
 
         Chapter chapter71 = new Chapter("71", "",
                 "71\n" +
+                        "\n" +
                         "Félicitations ! Vous avez trouvé un fer à cheval Maintenant ne perdez plus de temps.\n" +
                         "Reprenez la carte pour explorer une partie plus intéressante du village\n");
 
@@ -1329,6 +1415,7 @@ public class Main {
 
         Chapter chapter72 = new Chapter("72", "",
                 "72\n" +
+                        "\n" +
                         "C'est un bloc de pierre ! De pierre massive. Cette chaumière n'est pas du tout une\n" +
                         "chaumière : c'est une énorme masse de pierre taillée en forme de chaumière et\n" +
                         "recouverte d'un toit de chaume ! Une curiosité ! Reportez-vous à votre carte et\n" +
@@ -1338,6 +1425,7 @@ public class Main {
 
         Chapter chapter73 = new Chapter("73", "",
                 "73\n" +
+                        "\n" +
                         "Voilà qui est un peu mieux, Pip. Guère mieux, mais quand même. Les arbres semblent\n" +
                         "un peu moins denses par ici... Allons bon, voilà que vous tombez sur un Troll. Quel\n" +
                         "vilain petit bonhomme, en plus. Les bois en sont pleins à cette époque de l'année, cela\n" +
@@ -1362,12 +1450,14 @@ public class Main {
 
         Chapter chapter74 = new Chapter("74", "",
                 "74\n" +
+                        "\n" +
                         "Rendez-vous directement au 41.\n");
 
         chapter74.addChoice(new Choice("Page 41", "41"));
 
         Chapter chapter75 = new Chapter("75", "",
                 "75\n" +
+                        "\n" +
                         "— Soyez le bienvenu, dit le Monstre de Pierre. Mais vous ne répondez pas. Non pas\n" +
                         "par stoïcisme Devant le danger. Vous ne répondez pas, parce que TOUS en êtes\n" +
                         "incapable ! Vous êtes complètement pétrifié ». Rendez-vous au 14.\n");
@@ -1376,6 +1466,7 @@ public class Main {
 
         Chapter chapter76 = new Chapter("76", "",
                 "76\n" +
+                        "\n" +
                         "Vous avez fait un tiers du chemin...\n" +
                         "Vous avez fait la moitié du chemin...\n" +
                         "Vos muscles sont maintenant crispés et douloureux\n" +
@@ -1388,12 +1479,14 @@ public class Main {
 
         Chapter chapter77 = new Chapter("77", "",
                 "77\n" +
+                        "\n" +
                         "Bien jugé, Pip. Rendez-vous au 21.\n");
 
         chapter77.addChoice(new Choice("Page 21", "21"));
 
         Chapter chapter78 = new Chapter("78", "",
                 "78\n" +
+                        "\n" +
                         "La chance vous sourit, Pip. Ce corps-là nage comme un poisson, comme une otarie !\n" +
                         "Les remous glacés vous malmènent, vous submergent, vous projettent contre des\n" +
                         "rochers invisibles... mais vous continuez à nager ! Le courant vous ramène en arrière,\n" +
@@ -1412,12 +1505,14 @@ public class Main {
 
         Chapter chapter79 = new Chapter("79", "",
                 "79\n" +
+                        "\n" +
                         "Rendez-vous directement au 41.\n");
 
         chapter79.addChoice(new Choice("Page 41", "41"));
 
         Chapter chapter80 = new Chapter("80", "",
                 "80\n" +
+                        "\n" +
                         "Un peu de persévérance peut vous mener loin. Vous avez repéré une ouverture. Pas\n" +
                         "une porte, juste une ouverture, la porte elle-même a disparu depuis longtemps. Mais\n" +
                         "l'ouverture donne accès à la tour et ruine. Vous tirez votre épée et vous avancez avec\n" +
@@ -1453,6 +1548,7 @@ public class Main {
 
         Chapter chapter81 = new Chapter("81", "",
                 "81\n" +
+                        "\n" +
                         "C est un refuge magique, Pip. Un endroit merveilleux en plus, bien qu'il soit\n" +
                         "impossible à décrire disons simplement qu'une lumière bleue y brille à profusion.\n" +
                         "Baignez-vous dans cette lumière, puis retournez au paragraphe que vous venez de\n" +
@@ -1463,6 +1559,7 @@ public class Main {
 
         Chapter chapter82 = new Chapter("82", "",
                 "82\n" +
+                        "\n" +
                         "Quel est ce bruit ? Quelqu'un siffle, juste derrière cet arbre. Peut-être sait-il comment\n" +
                         "sortir de ce bois stupide. Vivement, vous plongez dans les taillis, et vous rampez en\n" +
                         "direction du sifflement. Vous parvenez au pied d'un arbre, et vous vous redressez à\n" +
@@ -1480,12 +1577,14 @@ public class Main {
 
         Chapter chapter83 = new Chapter("83", "",
                 "83\n" +
+                        "\n" +
                         "Rendez-vous immédiatement au 41.\n");
 
         chapter83.addChoice(new Choice("Page 41", "41"));
 
         Chapter chapter84 = new Chapter("84", "",
                 "84\n" +
+                        "\n" +
                         "Une odeur de soufre enflammé, à laquelle se mêle bientôt la puanteur caractéristique\n" +
                         "du méthane, empoisonne l'atmosphère. Il semble que vous brûliez, Pip, et ça n'a rien à\n" +
                         "voir avec la chaleur. Le sentier que vous suivez aboutit à la gueule béante d'une\n" +
@@ -1497,6 +1596,7 @@ public class Main {
 
         Chapter chapter85 = new Chapter("85", "",
                 "85\n" +
+                        "\n" +
                         "Vous avez réussi ! Après toutes ces épreuves, vous avez réussi ! Vous avez franchi\n" +
                         "l'abîme, sain et sauf. Rendez-vous au 16.\n");
 
@@ -1504,6 +1604,7 @@ public class Main {
 
         Chapter chapter86 = new Chapter("86", "",
                 "86\n" +
+                        "\n" +
                         "— Non! Non! glapit E.J., paniquée, quand vous avancez d'un pas. J'ai un affreux\n" +
                         "pressentiment ! Une terrible intuition ! J'ai... Mais la stupeur lui coupe la parole.\n" +
                         "Le passage secret vous a amené dans une vaste caverne souterraine, grande comme\n" +
@@ -1511,8 +1612,8 @@ public class Main {
                         "dans le socle rocheux en dessous du village de Pierre-qui-Mue. La caverne est\n" +
                         "illuminée par des cristaux étincelants sertis dans les parois et dans les colonnes de\n" +
                         "pierre naturelle qui supportent la voûte. Et sous cette voûte, montant du sol de pierre,\n" +
-                        "s'épanouissent des fleurs, des buissons, des champignons de cristal, de toutes les\n" +
-                        "tailles, formes et couleurs possibles, tous translucides ou transparents, reflétant la\n" +
+                        "s'épanouissent des fleurs, des buissons, des champignons de cristal, de toutes\n" +
+                        "les tailles, formes et couleurs possibles, tous translucides ou transparents, reflétant la\n" +
                         "lumière, brillant de mille feux, transformant le décor en une véritable féérie. Et peut-\n" +
                         "être se trouve-t-on vraiment au Pays des Fées, à en juger par les petites créatures ailées\n" +
                         "qui volètent parmi les fleurs. Vous vous immobilisez, le souffle coupé par ce\n" +
@@ -1559,6 +1660,7 @@ public class Main {
 
         Chapter chapter87 = new Chapter("87", "",
                 "87\n" +
+                        "\n" +
                         "Voilà un Fantôme qui est bel et bien mort ! D'ici que cette aventure soit terminée, tout\n" +
                         "le monde vous appellera Pip le Pourfendeur de Fantômes. Si vous n'êtes pas\n" +
                         "surnommé, bien entendu, Pip le Pourfendeur de Dragons. Peut-être même secouera-t-\n" +
@@ -1577,6 +1679,7 @@ public class Main {
 
         Chapter chapter88 = new Chapter("88", "",
                 "88\n" +
+                        "\n" +
                         "Vous avez repéré une porte béante, morbleu ! Vous franchissez la porte, morbleu ! Un\n" +
                         "effondrement se produit et vous êtes enterré sous les décombres, morbleu ! Rendez-\n" +
                         "vous au 14.\n");
@@ -1585,12 +1688,14 @@ public class Main {
 
         Chapter chapter89 = new Chapter("89", "",
                 "89\n" +
+                        "\n" +
                         "Rendez-vous directement au 41.\n");
 
         chapter89.addChoice(new Choice("Page 41", "41"));
 
         Chapter chapter90 = new Chapter("90", "",
                 "90\n" +
+                        "\n" +
                         "il était évident que vous alliez prendre ce risque. Le passage tournicote dans tous les\n" +
                         "sens. Comme il est trés étroit et bas de plafond, vous êtes la plupart du temps plié en\n" +
                         "deux et vos coudes raclent les parois. Vous finissez par atteindre une impasse, où vous\n" +
@@ -1617,6 +1722,7 @@ public class Main {
 
         Chapter chapter91 = new Chapter("91", "",
                 "91\n" +
+                        "\n" +
                         "Quel hideux cadavre va sortir de la tombe béante ? Quel monstre en décomposition ?\n" +
                         "Quel cruel vampire ? Quelle goule spectrale ?\n" +
                         "Ohé, mon gars... donne-moi un coup de main ! Qui vous interpelle ? Est-ce un cadavre\n" +
@@ -1656,6 +1762,7 @@ public class Main {
 
         Chapter chapter92 = new Chapter("92", "",
                 "92\n" +
+                        "\n" +
                         "Vous franchissez la porte, pour émerger dans le brouillard. Aussitôt, vous faites volte-\n" +
                         "face, mais bien que vous ayez réagi à la vitesse de l'éclair, il est déjà trop tard. La\n" +
                         "porte a disparu. Vous tâtonnez sans succès dans le brouillard. Vous tâtonnez pendant\n" +
@@ -1665,6 +1772,7 @@ public class Main {
 
         Chapter chapter93 = new Chapter("93", "",
                 "93\n" +
+                        "\n" +
                         "Et si c'était un Gnome de Zurich ? Vous n'imaginez pas le nombre de fois où il a\n" +
                         "compté et recompté votre argent avant de le ranger avec soin dans une bourse en cuir\n" +
                         "fermée d'une serrure. Vous vous rendez compte ! Une bourse avec une serrure ! Mais\n" +
@@ -1699,6 +1807,7 @@ public class Main {
 
         Chapter chapter94 = new Chapter("94", "",
                 "94\n" +
+                        "\n" +
                         "Avant que le roi Arthur n'ait chassé les Romains, un dicton courait dans le royaume\n" +
                         "d'Avalon (qui, à cette époque, ne s'appelait pas, bien entendu, Avalon), qui disait : «\n" +
                         "Au Vainqueur, les Dépouilles. » Ad victor spoilarum, ou une autre absurdité de ce\n" +
@@ -1718,6 +1827,7 @@ public class Main {
 
         Chapter chapter95 = new Chapter("95", "",
                 "95\n" +
+                        "\n" +
                         "Derrière vous, le désert volcanique. Devant vous, la gueule béante d'une sombre et\n" +
                         "sinistre caverne. Dans vos narines, l'odeur du Dragon, mêlée à des relents de vapeurs\n" +
                         "sulfureuses et de méthane. A votre main (si vous avez le moindre bon sens) votre\n" +
@@ -1743,6 +1853,7 @@ public class Main {
 
         Chapter chapter96 = new Chapter("96", "",
                 "96\n" +
+                        "\n" +
                         "Non, bien sûr, ce n'est pas lui ! C'est un personnage dont vous vous souvenez, pour\n" +
                         "l'avoir rencontre dans le Château des Ténèbres du Sorcier Ansalom. Lors de votre\n" +
                         "dernière rencontre à la cour du roi Arthur, à Camelot, il arborait sa plus belle tenue et\n" +
@@ -1780,6 +1891,7 @@ public class Main {
 
         Chapter chapter97 = new Chapter("97", "",
                 "97\n" +
+                        "\n" +
                         "Ça va mieux maintenant, Pip? Espérons-le. Vous êtes jeune et robuste, doué d'un\n" +
                         "physique avantageux , mais vous semblez en plus immunisé contre ce genre de poison.\n" +
                         "Tout de même, veillez donc à ne pas vous bourrer de beignets, sinon vous allez vous\n" +
@@ -1790,6 +1902,7 @@ public class Main {
 
         Chapter chapter98 = new Chapter("98", "",
                 "98\n" +
+                        "\n" +
                         "Le passage, une fissure naturelle dans le rocher, selon toute apparence, s'incurve,\n" +
                         "tourne, s'élargit, se rétrécit de nouveau et vous finissez par perdre tout sens de la\n" +
                         "direction. (Bien que vous ayez, en gros, la sensation d'aller vers le nord-ouest.) Le\n" +
@@ -1824,6 +1937,7 @@ public class Main {
 
         Chapter chapter99 = new Chapter("99", "",
                 "99\n" +
+                        "\n" +
                         "Le passage, qui semble fort fréquenté, débouche quelques deux cents mètres plus loin\n" +
                         "sur une immense caverne, dont la suffocante puanteur vous prend à la gorge. Votre\n" +
                         "torche vous révèle bientôt l'origine de cette odeur : au centre de la caverne est amassé\n" +
@@ -1851,6 +1965,7 @@ public class Main {
 
         Chapter chapter100 = new Chapter("100", "",
                 "100\n" +
+                        "\n" +
                         "Vous avez un peu mal au ventre à présent. Et ça ne fait que s'aggraver. Vous n'auriez\n" +
                         "peut-être pas dû ingurgiter autant de beignets. Ou tous ces gâteaux A moins que la\n" +
                         "nourriture ne soit empoisonnée Aïe ! Elle est empoisonnée, en effet ! Vous sentez le\n" +
@@ -1866,6 +1981,7 @@ public class Main {
 
         Chapter chapter101 = new Chapter("101", "",
                 "101\n" +
+                        "\n" +
                         "Proclamation à tous les aventuriers : Moi, Ethel- berg, Moine Guerrier et fidèle sujet\n" +
                         "d'Arturus Rex, fils de Uthur Pendragon et légitime Suzerain du Royaume d'Avalon,\n" +
                         "atteste par la présente en toute vérité que, moi-même, ledit Ethelberg, par la grâce de\n" +
@@ -1881,7 +1997,7 @@ public class Main {
                         "nauséabond de soufre et d'haleine de Dragon. Vous pouvez vous aventurer sans trop\n" +
                         "de danger dans la première caverne, car le Dragon niche beaucoup plus bas dans le\n" +
                         "labyrinthe terrifiant, et il n'y a guère ici que les ossements rongés de ceux qui ont péri.\n" +
-                        "Vous découvrirez que plusieurs choix s'offrent à voir pour sortir de la première\n" +
+                        "Vous découvrirez que plusieurs choix s'offrent à voer pour sortir de la première\n" +
                         "caverne. Aucun chemin n'est sûr, car tous vous conduiront dans des dédales de boyaux\n" +
                         "et de tunnels creusés au cours des siècles à travers la roche vive dans les entrailles\n" +
                         "mêmes de la terre.\n" +
@@ -1918,6 +2034,7 @@ public class Main {
 
         Chapter chapter102 = new Chapter("102", "",
                 "102\n" +
+                        "\n" +
                         "le tunnel vous conduit sain et sauf dans une petite grotte, apparemment vide. Vous y\n" +
                         "remarquez trois issues.\n" +
                         "L'une, au sud, menant au 108.\n" +
@@ -1945,6 +2062,7 @@ public class Main {
 
         Chapter chapter103 = new Chapter("103", "",
                 "103\n" +
+                        "\n" +
                         "Lancez deux dés. Si vous faites :\n" +
                         "de 2 à 9 : les Trolls, très agressifs de nature demeurent inaccessibles à tout\n" +
                         "raisonnement. Retournez au 98 et refaites votre choix, de 10 à 12 : les Trolls vous\n" +
@@ -1955,6 +2073,7 @@ public class Main {
 
         Chapter chapter104 = new Chapter("104", "",
                 "104\n" +
+                        "\n" +
                         "on entend des bruissements dans le grain. Des bruissements accentués. Pouah ! ce\n" +
                         "sont des rats ! Il doit y en avoir des centaines à en juger par le bruit. Mais non, pas du\n" +
                         "tout ! Il n'y en a qu'un ! De la taille d'un chien-loup ! Il vous fixe un instant de ses yeux\n" +
@@ -1974,6 +2093,7 @@ public class Main {
 
         Chapter chapter105 = new Chapter("105", "",
                 "105\n" +
+                        "\n" +
                         "Vous vous trouvez non loin de l'entrée d'une autre caverne, et vous remarquez sur\n" +
                         "votre droite, l'entree d un nouveau couloir.\n" +
                         "Si vous voulez pénétrer dans la caverne, rendez-vous au 114.\n" +
@@ -1984,10 +2104,11 @@ public class Main {
 
         Chapter chapter106 = new Chapter("106", "",
                 "106\n" +
+                        "\n" +
                         "Quelle trouvaille ! Quelle trouvaille ! C'est une carte de Antre du Dragon ! Du\n" +
                         "moins, un fragment de carte. Quand vous atteindrez la caverne, si vous l'atteignez\n" +
                         "jamais, vous pourrez vous reporter à ce document pour trouver votre chemin. Il\n" +
-                        "n'indique pas 1’entree, mais il décrit le labyrinthe et peut en conséquence, vous\n" +
+                        "n'indique pas 1'entree, mais il décrit le labyrinthe et peut en conséquence, vous\n" +
                         "sauver la vie. La carte figure 'sur la page ci-contre. Vous pouvez la consulter à n'im-\n" +
                         "porte quel moment après avoir quitté l'abbaye Reprenez maintenant la carte du\n" +
                         "village et poursuivez vos explorations.\n");
@@ -1996,6 +2117,7 @@ public class Main {
 
         Chapter chapter107 = new Chapter("107", "",
                 "107\n" +
+                        "\n" +
                         "L'interieur de la crypte est tendu de magnifiques draperies de velours noir et le sol, les\n" +
                         "murs et le plafond, sont du marbre blanc le plus fin. Au centre est dressee une petite\n" +
                         "estrade sur laquelle repose un cercueil en ébène incrusté de cuivre étincelant. Sur\n" +
@@ -2023,6 +2145,7 @@ public class Main {
 
         Chapter chapter108 = new Chapter("108", "",
                 "108\n" +
+                        "\n" +
                         "Vous vous trouvez à l'intérieur d'une grotte naturelle, dont le sol est littéralement\n" +
                         "jonché d'ossements et de crânes. La plupart proviennent d'animaux, certains,\n" +
                         "d'humains, plusieurs de créatures non identifiables. Rien ne bouge ici. Vous n'avez\n" +
@@ -2043,6 +2166,7 @@ public class Main {
 
         Chapter chapter109 = new Chapter("109", "",
                 "109\n" +
+                        "\n" +
                         "Vous vous tordez de douleur, Pip, vous avez bel et bien été empoisonné. Rendez-vous\n" +
                         "au 14.\n");
 
@@ -2050,6 +2174,7 @@ public class Main {
 
         Chapter chapter110 = new Chapter("110", "",
                 "110\n" +
+                        "\n" +
                         "Cretin ! Vous venez de vous laisser sacrifier par les Moines. Vous voulez tous les\n" +
                         "détails sanglants? peut-être pas. Rendez-vous donc au 14.\n");
 
@@ -2057,6 +2182,7 @@ public class Main {
 
         Chapter chapter111 = new Chapter("111", "",
                 "111\n" +
+                        "\n" +
                         "Vous avez trouvé un anneau ! Il s'adapte parfaitement au doigt de votre main gauche.\n" +
                         "Le problème c'est qu'après l'avoir essayé, vous ne pouvez plus le retirer. Et il tinte\n" +
                         "légèrement. Un tintement ? A quoi peut bien rimer ce tintement? Mais peu importe\n" +
@@ -2066,8 +2192,9 @@ public class Main {
 
         Chapter chapter112 = new Chapter("112", "",
                 "112\n" +
+                        "\n" +
                         "Le passage s'élargit brusquement et vous vous retrouvez sur la berge rocheuse d'un\n" +
-                        "vaste lac souterrain. Aucun chemin n'apparaît autour de ces eau. sombres, immobiles.\n" +
+                        "vaste lac souterrain. Aucun chemin n'apparaît autour de ces eau, sombres, immobiles.\n" +
                         "Mais, amarré à quelques mètres de vous, flotte un vieux canot à rames disloqué. Si\n" +
                         "vous avez découvert précédemment au cours, de cette aventure que vous saviez nager,\n" +
                         "peut-être aurez-vous envie de vous baigner dans ce lac (Si vous ignorez si vous savez\n" +
@@ -2081,6 +2208,7 @@ public class Main {
 
         Chapter chapter113 = new Chapter("113", "",
                 "113\n" +
+                        "\n" +
                         "Après avoir compté votre argent avec le plus grand soin, le Gnome vous annonce qu'il\n" +
                         "y a deux façons de sortir du village. Deux des chaumières ont des portes de derrière et\n" +
                         "l'une ou l'autre vous permettra de franchir la palissade.\n" +
@@ -2100,6 +2228,7 @@ public class Main {
 
         Chapter chapter114 = new Chapter("114", "",
                 "114\n" +
+                        "\n" +
                         "Quelle misérable petite caverne ! Basse de plafond, sans issue et absolument envahie\n" +
                         "de moisissures répugnantes et malodorantes. En ce moment même, cette moisissure est\n" +
                         "en train de dévorer votre jambe !\n" +
@@ -2110,6 +2239,7 @@ public class Main {
 
         Chapter chapter115 = new Chapter("115", "",
                 "115\n" +
+                        "\n" +
                         "Quelle trouvaille ! Quelle trouvaille ! Vous avez découvert un rouleau de parchemin.\n" +
                         "Et voilà ce qui est écrit dessus :\n" +
                         "Que l'on sache que moi, Ethelberg, Moine Guerrier et fidèle sujet de Arturus Rex, fils\n" +
@@ -2139,6 +2269,7 @@ public class Main {
 
         Chapter chapter116 = new Chapter("116", "",
                 "116\n" +
+                        "\n" +
                         "Aussitôt, le couvercle du cercueil se rabat, et une mince silhouette d'une mortelle\n" +
                         "pâleur en tenue de soirée et longue cape noire en bondit avec une effrayante célérité.\n" +
                         "Cette créature a des yeux roses et ses canines supérieures chevauchent sa lèvre infé-\n" +
@@ -2167,6 +2298,7 @@ public class Main {
 
         Chapter chapter117 = new Chapter("117", "",
                 "117\n" +
+                        "\n" +
                         "Vous montez à bord du canot, vous repêchez les rames dans l'eau croupie, au fond de\n" +
                         "la coque, vous les glissez dans les tolets, et vous vous écartez du rivage. L'eau sombre\n" +
                         "absorbe la lumière de la torche que vous avez fixée à l'avant de votre embarcation, et\n" +
@@ -2184,6 +2316,7 @@ public class Main {
 
         Chapter chapter118 = new Chapter("118", "",
                 "118\n" +
+                        "\n" +
                         "Vous fouillez précipitamment dans vos affaires à la recherche d'un gantelet mais, n'en\n" +
                         "trouvant pas. vous vous emparez de celui en métal que vous voyez posé sur la table.\n" +
                         "D'un geste prompt, vous jetez le gantelet au visage du Chevalier Noir (heureusement\n" +
@@ -2191,7 +2324,7 @@ public class Main {
                         "Hé, du calme ! s'exclame le Chevalier Noir Qu'est-ce qui vous prend ?\n" +
                         "Je vous provoque en combat singulier, répliquez- vous, brûlant de dégainer votre épée.\n" +
                         "Pourquoi cette idée saugrenue ?\n" +
-                        "Parce que, répondez-vous, vous êtes le redoutable Chevalier Noir que chacun désigne\n" +
+                        "Parce que, répondez- vous, vous êtes le redoutable Chevalier Noir que chacun désigne\n" +
                         "à voix basse Comme le plus infâme de tous les chevaliers du Royaume. Je veux\n" +
                         "débarrasser Avalon de votre présence nauséabonde.\n" +
                         "Ne soyez pas ridicule, réplique le Chevalier Noir. Je suis le roi Pellinore.\n" +
@@ -2206,6 +2339,7 @@ public class Main {
 
         Chapter chapter119 = new Chapter("119", "",
                 "119\n" +
+                        "\n" +
                         "Rien. Vous ne trouvez strictement rien. Au diable les stupides dictons romains sur les\n" +
                         "vainqueurs et les dépouilles. Nihil ad victor, comme disaient les Romains les plus\n" +
                         "sensés : du vent pour le Vainqueur ! En maugréant, vous consultez une fois de plus la\n" +
@@ -2215,6 +2349,7 @@ public class Main {
 
         Chapter chapter120 = new Chapter("120", "",
                 "120\n" +
+                        "\n" +
                         "Le passage est orienté plein est pendant un certain caps, puis il s'incurve, d'abord vers\n" +
                         "le nord-est et ensuite, presque à angle droit, vers le nord. Vous percevez une étrange\n" +
                         "odeur, qui évoque un peu celle de l étable chez vos parents adoptifs mais plus\n" +
@@ -2290,6 +2425,7 @@ public class Main {
 
         Chapter chapter121 = new Chapter("121", "",
                 "121\n" +
+                        "\n" +
                         "Aussitôt le couvercle du cercueil se rabat et une mince silhouette d'une mortelle pâleur\n" +
                         "en tenue de soirée et longue cape noire en bondit avec une effrayante célérité. Cette\n" +
                         "créature a des yeux roses et ses canines supérieures chevauchent sa lèvre inférieure.\n" +
@@ -2303,6 +2439,7 @@ public class Main {
 
         Chapter chapter122 = new Chapter("122", "",
                 "122\n" +
+                        "\n" +
                         "Aussitôt le couvercle du cercueil se rabat et une mince silhouette d'une mortelle pâleur\n" +
                         "en tenue de soirée et longue cape noire en bondit avec une effrayante célérité. Cette\n" +
                         "créature a des yeux roses et ses canines supérieures chevauchent sa lèvre inférieure,\n" +
@@ -2326,7 +2463,7 @@ public class Main {
                         "Une manie répugnante et très mauvaise pour la santé. Vous pouvez néanmoins faire\n" +
                         "exception avec ce mélange. Ce n'est pas du tabac, en fait, mais de l'armoise pilée, et\n" +
                         "bénie par un vicaire de confession anglicane. Elle est douée de propriétés curatives\n" +
-                        "exceptionnelles. Prisez une pincée lorsque vous vous sentez affaibli et lancez les deux\n" +
+                        "exceptionnelles. Prenez une pincée lorsque vous vous sentez affaibli et lancez les deux\n" +
                         "dés deux fois. Le total obtenu indique le nombre de POINTS DE VIE qui vous sont\n" +
                         "restitués. Mais contentez-vous d'une seule prise au cours d'un paragraphe, sinon vous\n" +
                         "serez expédié directement au 14. Compris ? Très bien. Maintenant en route, audacieux\n" +
@@ -2342,6 +2479,7 @@ public class Main {
 
         Chapter chapter123 = new Chapter("123", "",
                 "123\n" +
+                        "\n" +
                         "Vous vous déshabillez avec soin, et vous faites un paquet de vos vêtements, avant de\n" +
                         "plonger dans les eaux glacées du lac souterrain pour vous retrouver dans la gueule d'un\n" +
                         "énorme Poisson qui rôdait dans les profondeurs !\n" +
@@ -2360,6 +2498,7 @@ public class Main {
 
         Chapter chapter124 = new Chapter("124", "",
                 "124\n" +
+                        "\n" +
                         "Vous avez des bras robustes, Pip. Ou peut-être une chance inouïe. De toute façon,\n" +
                         "vous avez réussi ! Les chaussures gorgées d'eau, vous traversez la caverne jusqu'à\n" +
                         "l'entrée d'un passage qui vous permet d'en sortir en direction de l'est. Vous pénétrez\n" +
@@ -2369,12 +2508,14 @@ public class Main {
 
         Chapter chapter125 = new Chapter("125", "",
                 "125\n" +
+                        "\n" +
                         "Rendez-vous au 10.\n");
 
         chapter125.addChoice(new Choice("Page 10", "10"));
 
         Chapter chapter126 = new Chapter("126", "",
                 "126\n" +
+                        "\n" +
                         "Eh bien voyons, dit le Minotaure un peu essoufflé après le combat, maintenant que\n" +
                         "nous voilà débarrassés de cette formalité, tu ferais bien de farfouiller dans mes\n" +
                         "coffres. Cela fait également partie de la tradition, tu sais. Au Vainqueur les\n" +
@@ -2409,6 +2550,7 @@ public class Main {
 
         Chapter chapter127 = new Chapter("127", "",
                 "127\n" +
+                        "\n" +
                         "Quel beau travail ! s'exclame Nosférax le Poète. Quel remarquable effort ! Presque\n" +
                         "digne, à certains égards, de mes premières œuvres, si prometteuses. Cela me rappelle\n" +
                         "en un sens T.S. Eliot dans sa Période Bleue, ou était-ce Picasso? Peu importe. C'est un\n" +
@@ -2437,6 +2579,7 @@ public class Main {
 
         Chapter chapter128 = new Chapter("128", "",
                 "128\n" +
+                        "\n" +
                         "Le cœur léger, vous avancez gaiement le long du passage jusqu'au moment où vous\n" +
                         "tombez dans une fosse.\n" +
                         "lancez deux dés pour déterminer le dommage provoqué par cette chute. Soustrayez le\n" +
@@ -2453,6 +2596,7 @@ public class Main {
 
         Chapter chapter129 = new Chapter("129", "",
                 "129\n" +
+                        "\n" +
                         "Comme c'est intéressant. La cassette contient une grande clef. Le coffre, en revanche,\n" +
                         "ne contient qu'un parchemin. Sur ce parchemin est inscrit :\n" +
                         "NPJ, FUIFMCFSU, NPJOF FU, N'FUBON MJF E'BNJUJF BWFD MF NPOTUSF B\n" +
@@ -2470,6 +2614,7 @@ public class Main {
 
         Chapter chapter130 = new Chapter("130", "",
                 "130\n" +
+                        "\n" +
                         "Ouaoh ! Ce doit être votre jour de chance, Pip. Le passage vient de déboucher dans\n" +
                         "une grotte, et votre torche illumine le plus fabuleux amas de joyaux, d'argent, d'or, de\n" +
                         "vermeil, de jade, d'ivoire, d'objets d'art, que vous ayez jamais vu. Il y a là la rançon\n" +
@@ -2510,6 +2655,7 @@ public class Main {
 
         Chapter chapter131 = new Chapter("131", "",
                 "131\n" +
+                        "\n" +
                         "Chacun de ces affreux Nains possède 10 POINTS DE VIE. Ils se déplacent avec une\n" +
                         "telle lenteur, que vous pouvez avoir, à coup sûr, l'initiative de l'attaque. Lancez deux\n" +
                         "dés pour savoir combien de Nains vous pourrez frapper avant qu'ils ne ripostent. (Si\n" +
@@ -2528,6 +2674,7 @@ public class Main {
 
         Chapter chapter132 = new Chapter("132", "",
                 "132\n" +
+                        "\n" +
                         "GLOU... Glou... Glou... Glou... C'est vous qui faites ces bruits. En vous noyant. Vous\n" +
                         "voulez les entendre à nouveau ?\n" +
                         "Glou... Glou... Glou... Glou...\n" +
@@ -2554,6 +2701,7 @@ public class Main {
 
         Chapter chapter133 = new Chapter("133", "",
                 "133\n" +
+                        "\n" +
                         "Eh bien, au moins, vous n'êtes pas mort. Un peu estourbi peut-être, mais pas mort. Le\n" +
                         "seul problème, maintenant, c'est qu'il va falloir demander à Merlin de s'occuper de\n" +
                         "cette énorme et stupide tête du Minotaure.\n" +
@@ -2588,6 +2736,7 @@ public class Main {
 
         Chapter chapter134 = new Chapter("134", "",
                 "134\n" +
+                        "\n" +
                         "Enjambant avec soin les cadavres des Nains, vous arrivez devant le panneau de\n" +
                         "contrôle sur le mur nord. Une plaque de métal bleu est encastrée dans le sol en métal\n" +
                         "luisant sous vos pieds. Vous la tâtez avec précaution, mais il semble qu'on puisse se\n" +
@@ -2622,6 +2771,7 @@ public class Main {
 
         Chapter chapter135 = new Chapter("135", "",
                 "135\n" +
+                        "\n" +
                         "Le coffre n° 3 contient un rouleau sur lequel est écrit :\n" +
                         "NPJ, FUIFMCFSU, NPJOF FU, N'FUBON MJF E'BNJUJF BWFD MF NPOTUSF B\n" +
                         "UFUF EF UBVSFBV BGGJSNF RVF TFVMF MB DMFG DPOUFOVF EBOT MF\n" +
@@ -2645,6 +2795,7 @@ public class Main {
 
         Chapter chapter136 = new Chapter("136", "",
                 "136\n" +
+                        "\n" +
                         "Quelle courageuse décision ! Un peu intéressée, peut-être, mais courageuse.\n" +
                         "Maintenant, passons aux mauvaises nouvelles. La Méduse dispose de 100 POINTS\n" +
                         "DE VIE. Elle peut vous transformer en pierre chaque fois qu'elle frappe deux\n" +
@@ -2664,10 +2815,11 @@ public class Main {
 
         Chapter chapter137 = new Chapter("137", "",
                 "137\n" +
+                        "\n" +
                         "La caverne dans laquelle vous venez de pénétrer est complètement tapissée de métal !\n" +
                         "Sol, murs et plafond ! Et le mur nord tout entier est occupé par des rangées et des\n" +
                         "rangées d'énormes machines. Elles ne peuvent en aucun cas être l'œuvre de Dragons !\n" +
-                        "Ou de qui que ce soit d'autre ayant vécu du temps du roi Arthur. Si vous n'étiez pas un\n" +
+                        "Ou de qui que ce soit ayant vécu du temps du roi Arthur. Si vous n'étiez pas un\n" +
                         "personnage du vingtième siècle occupant un autre corps, vous seriez peut-être tenté de\n" +
                         "penser qu'il s'agit là de magie Mais vous venez précisément du vingtième siècle, et\n" +
                         "vous savez très bien que vous avez devant vous une sorte de machine géante. Mais qui\n" +
@@ -2692,6 +2844,7 @@ public class Main {
 
         Chapter chapter138 = new Chapter("138", "",
                 "138\n" +
+                        "\n" +
                         "le passage s'élargit brusquement et vous vous retrouvez sur la berge rocheuse d'un\n" +
                         "vaste lac souterrain. Aucun chemin n'apparaît autour de ces eaux sombres, immobiles.\n" +
                         "Mais, amarré à quelques metres de vous, flotte un vieux canot à rames disloqué.\n" +
@@ -2706,6 +2859,7 @@ public class Main {
 
         Chapter chapter139 = new Chapter("139", "",
                 "139\n" +
+                        "\n" +
                         "On entend un ronronnement de machine. Une vibration vous parcourt le corps.\n" +
                         "Pendant un instant vous vous sentez étourdi, désorienté. Une spirale de lumière jaillit\n" +
                         "de la plaque, sous vos pieds, et s'ecroule autour de vous. La tête vous tourne, le vertige\n" +
@@ -2727,6 +2881,7 @@ public class Main {
 
         Chapter chapter140 = new Chapter("140", "",
                 "140\n" +
+                        "\n" +
                         "Oh misère. Vous venez d'être mordu par un Serpent qui était enroulé au fond du coffre\n" +
                         "n° 1. (Non, ne rrenez pas vos dés, ne vous tordez pas de douleur ce n'est pas tout).\n" +
                         "Heureusement, comme tout excentrique sensé, vous avez ouvert en premier le coffre\n" +
@@ -2744,6 +2899,7 @@ public class Main {
 
         Chapter chapter141 = new Chapter("141", "",
                 "141\n" +
+                        "\n" +
                         "Obscurité totale. Et, dans cette obscurité, quelque chose se jette sur vous. Une énorme\n" +
                         "créature très agressive, et semble-t-il velue. Des crocs claquent à vous frôler la gorge.\n" +
                         "Des griffes vous labourent la poitrine. Des grondements féroces vous font vibrer les\n" +
@@ -2759,6 +2915,7 @@ public class Main {
 
         Chapter chapter142 = new Chapter("142", "",
                 "142\n" +
+                        "\n" +
                         "On entend un ronronnement de machine. Une vibration vous parcourt le corps.\n" +
                         "Pendant un instant vous vous sentez étourdi, désorienté. Une spirale de lumière jaillit\n" +
                         "de la plaque, sous vos pieds, et s'enroule autour de vous. La tête vous tourne. Le ver-\n" +
@@ -2768,6 +2925,7 @@ public class Main {
 
         Chapter chapter143 = new Chapter("143", "",
                 "143\n" +
+                        "\n" +
                         "La cassette contient une grosse clef qui pourrait vous être utile si vous survivez à la\n" +
                         "morsure du Serpent lové au fond du coffre n° 3. Lancez deux dés pour savoir si la\n" +
                         "morsure du Serpent est mortelle.\n" +
@@ -2785,12 +2943,14 @@ public class Main {
 
         Chapter chapter144 = new Chapter("144", "",
                 "144\n" +
+                        "\n" +
                         "Rendez-vous au 108.\n");
 
         chapter144.addChoice(new Choice("Page 108", "108"));
 
         Chapter chapter145 = new Chapter("145", "",
                 "145\n" +
+                        "\n" +
                         "On entend un ronronnement de machine. Une vibration vous parcourt le corps.\n" +
                         "Pendant un instant, vous vous sentez étourdi, désorienté. Une spirale de lumière jaillit\n" +
                         "de la plaque sous vos pieds et s'enroule autour de vous. La tête vous tourne. Le vertige\n" +
@@ -2800,8 +2960,9 @@ public class Main {
 
         Chapter chapter146 = new Chapter("146", "",
                 "146\n" +
+                        "\n" +
                         "Le coffre n° 2 contient un flacon où se lit clairement l'inscription : Antidote au venin\n" +
-                        "de Serpent, qui pourrait se révéler utile en cas de morsure de Serpent. Il y en a\n" +
+                        "de Serpent, qui pourrait se révéler utile en cas de morsure de Serpent. Il y en\n" +
                         "suffisament pour une dose, qui neutralisera complètement le venin, vous laissant le\n" +
                         "total de POINTS DE VIE dont vous disposiez avant d'être mordu.\n" +
                         "Le coffre n° 3 contient un rouleau sur lequel est écrit :\n" +
@@ -2820,6 +2981,7 @@ public class Main {
 
         Chapter chapter147 = new Chapter("147", "",
                 "147\n" +
+                        "\n" +
                         "On entend un ronronnement de machine. Une vibration vous parcourt le corps.\n" +
                         "Pendant un instant, vous vous sentez étourdi, désorienté. Une spirale de lumière jaillit\n" +
                         "de la plaque, sous vos pieds, et s'enroule autour de vous. La tête vous tourne. Le\n" +
@@ -2829,6 +2991,7 @@ public class Main {
 
         Chapter chapter148 = new Chapter("148", "",
                 "148\n" +
+                        "\n" +
                         "On entend un ronronnement de machine. Une vibra- non vous parcourt le corps.\n" +
                         "Pendant un instant, vous vous sentez étourdi, désorienté. Une spirale de lumière jaillit\n" +
                         "de la plaque sous vos pieds et s'enroule autour de vous. La tête vous tourne. Le vertige\n" +
@@ -2838,6 +3001,7 @@ public class Main {
 
         Chapter chapter149 = new Chapter("149", "",
                         "149\n" +
+                                "\n" +
                         "On entend un ronronnement de machine. Une vibra- non vous parcourt le corps.\n" +
                         "Pendant un instant, vous vous sentez étourdi, désorienté. Une spirale de lumière jaillit\n" +
                         "de la plaque sous vos pieds et s'enroule autour de vous. La tête vous tourne. Le vertige\n" +
@@ -2847,6 +3011,7 @@ public class Main {
 
         Chapter chapter150 = new Chapter("150", "",
                 "150\n" +
+                        "\n" +
                         "La cassette contient une grosse clef. A quoi peut-elle bien correspondre ? Le coffre ne\n" +
                         "fournit aucune explication : il contient seulement un flacon avec l'inscription\n" +
                         "clairement indiquée Antidote au venin de Serpent, ce qui, au moins, pourrait se révéler\n" +
@@ -2862,6 +3027,7 @@ public class Main {
 
         Chapter chapter151 = new Chapter("151", "",
                 "151\n" +
+                        "\n" +
                         "La galerie que vous suivez maintenant, est creusée à même le roc, et donne plutôt\n" +
                         "l'impression d'une fissure naturelle, élargie par endroits pour faciliter le passage.\n" +
                         "Tandis que vous progressez dans ce passage, une pensée vous vient à l'esprit. Quelle\n" +
@@ -2896,6 +3062,7 @@ public class Main {
 
         Chapter chapter152 = new Chapter("152", "",
                 "152\n" +
+                        "\n" +
                         "Il se produit une chose vraiment étrange : maintenant que le Monstre est mort,\n" +
                         "l'obscurité se dissipe, vous permettant de distinguer ce qui vous entoure. Comme si, de\n" +
                         "son vivant, le Monstre avait absorbé la lumière. Et, en effet, une zone d'obscurité\n" +
@@ -2914,8 +3081,8 @@ public class Main {
                         "tangible. N'importe, une baguette magique est une baguette magique, et la magie c'est\n" +
                         "la magie. Vous la glissez donc dans votre sac, espérant qu'elle vous sera peut- être\n" +
                         "utile par la suite. Une seule issue permet de quitter la salle. Elle s'ouvre sur un passage\n" +
-                        "étroit orienté vers l'est. Vous le suivez sur une courte distance et vous arrivez bientôt\n" +
-                        "devant une porte qui s'ouvre sans difficulté. Vous êtes maintenant dans une galerie\n" +
+                        "étroit orienté vers l'est. Vous le suivez sur une courte distance et vous arrivez\n" +
+                        "bientôt devant une porte qui s'ouvre sans difficulté. Vous êtes maintenant dans une galerie\n" +
                         "orientée nord-sud. Derrière vous, la porte s'est refermée, et semble avoir complètement\n" +
                         "disparu dans la paroi rocheuse. Vous décidez de poursuivre votre chemin vers le nord.\n" +
                         "Rendez-vous au 151.\n");
@@ -2924,6 +3091,7 @@ public class Main {
 
         Chapter chapter153 = new Chapter("153", "",
                 "153\n" +
+                        "\n" +
                         "Un court passage, orienté vers le sud-est, aboutit brusquement au sommet d'une volée\n" +
                         "de marches. Taillées grossièrement, — très grossièrement — elles sont maintenant\n" +
                         "lisses et usées comme si d'innombrables pieds les avaient foulées durant des éternités.\n" +
@@ -2931,7 +3099,7 @@ public class Main {
                         "courageux et intelligent a pu survivre assez longtemps pour parvenir jusqu'ici ; ces\n" +
                         "êtres-là sont rares. Non, Pip. Ces marches ont été usées par quelque créature des\n" +
                         "cavernes, par quelque maléfique créature des ténèbres. Avez-vous perçu un son, au-\n" +
-                        "dessous de vous? Un son ténu, sinistre. Un frôlement... La créature qui monte en\n" +
+                        "dessus de vous? Un son ténu, sinistre. Un frôlement... La créature qui monte en\n" +
                         "rampant le long des marches a plus de deux mètres de long. Verte, les yeux rouge\n" +
                         "sang, elle darde furieusement devant elle une langue effilée, une très longue langue\n" +
                         "palpitante, qui se termine par un bulbe. Clac ! La langue se détend comme un fouet\n" +
@@ -2944,7 +3112,7 @@ public class Main {
                         "Même si vous avez échappé à la langue du monstre, vous n'êtes pas pour autant sorti\n" +
                         "de l'auberge ! Cela vous donne simplement l'occasion de combattre le Rampant (le\n" +
                         "propriétaire de la langue). La créature ne possède pas plus de 20 POINTS DE VIE,\n" +
-                        "mais si elle réussit à frapper un seul coup, vous êtes pris au piège, et digéré. Le\n" +
+                        "mais si elle réussit à porter un seul coup, vous êtes pris au piège, et digéré. Le\n" +
                         "Rampant réussit à porter un coup s'il sort, au minimum, un 8... Si vous perdez la vie au\n" +
                         "cours du combat, rendez- vous au 14.\n" +
                         "Si vous tuez le Rampant (et bon débarras, si vous y parvenez), rendez-vous au 154.\n");
@@ -2954,6 +3122,7 @@ public class Main {
 
         Chapter chapter154 = new Chapter("154", "",
                 "154\n" +
+                        "\n" +
                         "Vous descendez prudemment les marches pour déboucher dans une salle de dimension\n" +
                         "moyenne. manifestement créée par l'homme, mais voilà certainement des siècles et,\n" +
                         "semble-t-il abandonnée depuis longtemps. Des lambeaux de porte pourrie sont restés\n" +
@@ -2970,6 +3139,7 @@ public class Main {
 
         Chapter chapter155 = new Chapter("155", "",
                 "155\n" +
+                        "\n" +
                         "C'est une impasse ! Auriez-vous cru quelqu'un capable de vous jouer un tour pareil !\n" +
                         "Tracer sur une carte un itinéraire qui aboutit à une impasse ! Vous qui avez peiné\n" +
                         "durant des kilomètres pour arriver Là ! il est à craindre que la seule solution soit de\n" +
@@ -2979,6 +3149,7 @@ public class Main {
 
         Chapter chapter156 = new Chapter("156", "",
                 "156\n" +
+                        "\n" +
                         "Le coffre est cerclé de cuivre, et fermé par un moraillon. Un motif décoratif en feuille\n" +
                         "d'or est incrusté dans le couvercle, autour d'un gros rubis. Il semble qu'il y ait\n" +
                         "différentes façons possibles d'ouvrir ce coffre, Pip.\n" +
@@ -2998,6 +3169,7 @@ public class Main {
 
         Chapter chapter157 = new Chapter("157", "",
                 "157\n" +
+                        "\n" +
                         "Vous voilà bien agressif, n'est-ce pas ? Eh bien, puisque vous avez décidé d'attaquer,\n" +
                         "c'est vous qui frappez en premier ces petites horreurs. Ce qui vaut peut-être mieux pour\n" +
                         "vous.\n" +
@@ -3014,27 +3186,30 @@ public class Main {
 
         Chapter chapter158 = new Chapter("158", "",
                 "158\n" +
+                        "\n" +
                         "Le résultat paraît satisfaisant : les toiles d'araignées ont disparu. Rendez-vous au 165.\n");
 
         chapter158.addChoice(new Choice("Page 165", "165"));
 
         Chapter chapter159 = new Chapter("159", "",
                 "159\n" +
+                        "\n" +
                         "Le résultat paraît satisfaisant : les toiles d'araignées ont disparu. Rendez-vous au 165.\n");
 
         chapter159.addChoice(new Choice("Page 165", "165"));
 
         Chapter chapter160 = new Chapter("160", "",
                 "160\n" +
+                        "\n" +
                         "Vous armant de tout votre courage, vous faites quelques pas, et vous pénétrez dans la\n" +
                         "plus étrange des cavernes que vous ayez visitées jusqu'alors. D'extraordinaires\n" +
                         "structures cristallines incrustées dans toute la surface de ses parois scintillent douce-\n" +
                         "ment à la lumière de votre torche, projetant des ombres aux reflets de saphir et\n" +
                         "d'émeraude ondulant comme des flammes magiques. L'espace est immense, et le sol\n" +
                         "descend en une série de gradins de faible hauteur, tel un escalier construit pour le plus\n" +
-                        "gigantesque des géants. Le dernier des gradins s'incurve vers le nord, se rétrécissant en\n" +
-                        "une espèce d'entonnoir dont l'extrémité s'élève brusquement, pour former une\n" +
-                        "cheminée débouchant certainement à l’air libre. Et toute l'atmosphère de ce lieu\n" +
+                        "gigantesque des géants. Le dernier des gradins s'incurve vers le nord, se rétrécissant\n" +
+                        "en une espèce d'entonnoir dont l'extrémité s'élève brusquement, pour former une\n" +
+                        "cheminée débouchant certainement à l'air libre. Et toute l'atmosphère de ce lieu\n" +
                         "sinistre est imprégnée d'une âcre puanteur qui vous suffoque à demi.\n" +
                         "Soudain, une flamme jaillit, qui illumine l'espace d'un instant l'ensemble de la\n" +
                         "caverne. Le spectacle qui s'est offert à vous durant ces quelques secondes vous glace\n" +
@@ -3047,10 +3222,10 @@ public class Main {
                         "pour lequel vous avez risqué votre vie ne suffiraient sans doute pas à les tenir en\n" +
                         "respect. Votre instinct vous crie de vous enfuir... mais la fuite est impossible ! Car\n" +
                         "devant vous, sur la marche la plus basse, accroupi lourdement à côté d'une boule de\n" +
-                        "cristal rouge sang coiffant une colonne de marbre, gigantesque, impassible, se trouve\n" +
+                        "cristal rouge coiffant une colonne de marbre, gigantesque, impassible, se trouve\n" +
                         "le monstre que vous avez pour mission de tuer. LE DRAGON DE BRONZE ! Il lève\n" +
-                        "ses yeux d'ambre étincelants et vous fixe jusqu'au tréfonds de l'âme. Sssss ! Une petite\n" +
-                        "langue de feu bleu-vert jaillit de sa gueule. Au même moment, des mots résonnent\n" +
+                        "ses yeux d'ambre étincelants et vous fixe jusqu'au tréfonds de l'âme. Sssss ! Une\n" +
+                        "petite langue de feu bleu-vert jaillit de sa gueule. Au même moment, des mots résonnent\n" +
                         "silencieusement en vous.\n" +
                         "Sois le bienvenu, Pip, aventurier et fidèle serviteur de l'Enchanteur Merlin !\n" +
                         "Vous ressentez un coup au cœur. C'est de la télépathie ! Un dragon télépathe ! Aucun\n" +
@@ -3086,6 +3261,7 @@ public class Main {
 
         Chapter chapter161 = new Chapter("161", "",
                 "161\n" +
+                        "\n" +
                         "Fâcheuse initiative ! Vous voilà pris dans les toiles d'araignées, et sans aucun moyen\n" +
                         "d'y échapper. Alors, autant vous rendre immédiatement au 14.\n");
 
@@ -3093,6 +3269,7 @@ public class Main {
 
         Chapter chapter162 = new Chapter("162", "",
                 "162\n" +
+                        "\n" +
                         "Regardez, Pip ! Il y a un Globe au fond du coffre ! Il repose sur un coussin de velours\n" +
                         "pourpre, à côté d'une petite plaque de cuivre polie portant une inscription. Penchez-\n" +
                         "vous pour la déchiffrer !\n" +
@@ -3125,6 +3302,7 @@ public class Main {
 
         Chapter chapter163 = new Chapter("163", "",
                 "163\n" +
+                        "\n" +
                         "Sans perdre un instant, vous sortez le Globe de votre sac, et vous soufflez dessus. Il\n" +
                         "semble d'abord se troubler, puis il se met à flamboyer d'une éblouissante lumière\n" +
                         "mauve. Un vaste bruissement d'ailes retentit alors au-dessus de vous : de toute\n" +
@@ -3155,6 +3333,7 @@ public class Main {
 
         Chapter chapter164 = new Chapter("164", "",
                 "164\n" +
+                        "\n" +
                         "Le couvercle du coffre s'ouvre brusquement. Mais au même instant, le rubis flamboie\n" +
                         "brièvement dans une explosion de lumière rouge sang, puis s'effrite et tombe en\n" +
                         "poussière. L'explosion vous coûte 30 POINTS DE VIE.\n" +
@@ -3166,6 +3345,7 @@ public class Main {
 
         Chapter chapter165 = new Chapter("165", "",
                 "165\n" +
+                        "\n" +
                         "Oh, oh. Des petites Formes noires s'envolent du coffre. De toutes petites créatures de\n" +
                         "la taille d'une main d'homme, peut-être même plus petites. Six en tout, qui volètent\n" +
                         "comme des chauves-souris ou des papillons. Mais il ne s'agit ni de chauves-souris ni\n" +
@@ -3183,6 +3363,7 @@ public class Main {
 
         Chapter chapter166 = new Chapter("166", "",
                 "166\n" +
+                        "\n" +
                         "Sans perdre un instant, vous sortez le Globe de votre sac, et vous soufflez dessus. Il\n" +
                         "semble d'abord se troubler, puis il se met à flamboyer d'une éblouissante lumière\n" +
                         "mauve. Un vaste bruissement d'ailes retentit alors au-dessus de vous : de toute\n" +
@@ -3219,6 +3400,7 @@ public class Main {
 
         Chapter chapter167 = new Chapter("167", "",
                 "167\n" +
+                        "\n" +
                         "Vous venez de perdre votre arme. Elle est restée prisonnière des toiles d'araignées.\n" +
                         "Retournez au 169 et faites une nouvelle tentative\n");
 
@@ -3226,6 +3408,7 @@ public class Main {
 
         Chapter chapter168 = new Chapter("168", "",
                 "168\n" +
+                        "\n" +
                         "Les Formes volètent doucement dans votre direction, l'une d'elle précédant les autres.\n" +
                         "Elles s'approchent de plus en plus, ces petites ombres silencieuses ! La Forme qui\n" +
                         "vient en tête est presque sur vous. Elle effleure votre bras, légère, impalpable, puis,\n" +
@@ -3246,6 +3429,7 @@ public class Main {
 
         Chapter chapter169 = new Chapter("169", "",
                 "169\n" +
+                        "\n" +
                         "Ce coffre n'a pas dû être ouvert depuis de longues années, car un amoncellement de\n" +
                         "toiles d'araignées poussiéreuses recouvre son contenu. Comment allez-vous vous\n" +
                         "débarrasser de ces encombrantes toiles d'araignées ?\n" +
@@ -3263,6 +3447,7 @@ public class Main {
 
         Chapter chapter170 = new Chapter("170", "",
                 "170\n" +
+                        "\n" +
                         "Un message, rédigé récemment selon toute apparence, déclare :\n" +
                         "Moi, Ethelbert, Moine Guerrier, loyal sujet d'Arturus Rex, fils de Uthur Pendragon, et\n" +
                         "Suzerain légitime du Royaume d'Avalon, atteste par ces lignes que, par la grâce de\n" +
@@ -3287,8 +3472,8 @@ public class Main {
                         "POINTS DE VIE en un instant.\n" +
                         "Sous ces créatures repose le trésor du coffre, un globe magique qui seul, affirme-t-on,\n" +
                         "peut assurer la survie d'un aventurier dans cette terrible caverne. Mais quant à moi je\n" +
-                        "n'en crois rien, préférant me fier à la grâce de Dieu. J'ai donc laissé le globe dans le\n" +
-                        "coffre pour ceux qui viendraient après moi. Certifié véridique, et signé.\n" +
+                        "n'en crois rien, préférant me fier à la grâce de Dieu. J'ai donc laissé le globe dans\n" +
+                        "le coffre pour ceux qui viendraient après moi. Certifié véridique, et signé.\n" +
                         "ETHELBERT, Moine Guerrier.\n" +
                         "Maintenant rendez-vous au 156 pour examiner le coffre.\n");
 
@@ -3296,6 +3481,7 @@ public class Main {
 
         Chapter chapter171 = new Chapter("171", "",
                 "171\n" +
+                        "\n" +
                         "Une aiguille jaillit du moraillon et vous perce le pouce. Vous ressentez aussitôt une\n" +
                         "douleur cuisante qui se transforme très vite en une brûlure intolérable, tandis que\n" +
                         "votre bras tout entier se met à enfiler. Bien inquiétant, non ? Cette aiguille, de toute\n" +
@@ -3310,6 +3496,7 @@ public class Main {
 
         Chapter chapter172 = new Chapter("172", "",
                 "172\n" +
+                        "\n" +
                         "Au moment où vous atteignez le dernier degré, le Dragon de Bronze se dresse\n" +
                         "brusquement. Malgré son corps massif, cette créature se meut avec une agilité\n" +
                         "terrifiante. Il vous domine de toute sa taille, ses yeux d'ambre étincelant de haine... et\n" +
@@ -3336,6 +3523,7 @@ public class Main {
 
         Chapter chapter173 = new Chapter("173", "",
                 "173\n" +
+                        "\n" +
                         "La gigantesque carcasse du redoutable Dragon de Bronze gît à vos pieds, encore\n" +
                         "palpitante. Vous vous dirigez vivement vers l'étincelante boule de cristal rouge et, d'un\n" +
                         "revers de main, vous la faites tomber du piédestal. Elle se brise en mille morceaux sur\n" +
@@ -3358,6 +3546,7 @@ public class Main {
 
         Chapter chapter174 = new Chapter("174", "Le Triomphe de Pip",
                 "Le Triomphe\n" +
+                        "\n" +
                         "Vint donc un jour en Avalon où deux étranges personnages dépenaillés réussirent\n" +
                         "péniblement à sortir de l'Antre du Dragon pour s'engager le long des chemins secrets\n" +
                         "qui finiraient par les ramener à Camelot. L'un d'eux était un gigantesque Moine\n" +
@@ -3443,11 +3632,11 @@ public class Main {
                         "peut-être bien magique. Poussant des cris de joie, il se mit à faire des claquettes tout\n" +
                         "autour de sa Grotte de Cristal.\n");
 
-        chapter174.addChoice(new Choice("Page 174", "174"));
+        chapter174.addChoice(new Choice("Menu Principal", "175"));
 
 
 
-        // Add chapters to scenario
+        // Ici ajouter une ligne pour ajouter un chapitre au scénario dans le format : "scenario.addChapter(chapter0);"
         scenario.addChapter(chapter0);
         scenario.addChapter(chapter1);
         scenario.addChapter(chapter2);
@@ -3623,10 +3812,11 @@ public class Main {
         scenario.addChapter(chapter172);
         scenario.addChapter(chapter173);
         scenario.addChapter(chapter174);
+        scenario.addChapter(chapter175);
 
 
-        // Set the starting chapter
-        scenario.setStartChapterId("0");
+        // Ici notez l'ID du chapitre de départ
+        scenario.setStartChapterId("175");
 
         return scenario;
     }

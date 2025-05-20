@@ -27,6 +27,12 @@ public class GameController {
         return currentChapter;
     }
 
+    public void setCurrentChapter(int chapterId) {
+        if (currentScenario != null) {
+            this.currentChapter = currentScenario.getChapter(String.valueOf(chapterId));
+        }
+    }
+
     public Player getPlayer() {
         return player;
     }
